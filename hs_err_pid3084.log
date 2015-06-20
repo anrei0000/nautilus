@@ -1,0 +1,111 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  Internal Error (javaClasses.cpp:136), pid=3084, tid=3972
+#  fatal error: Invalid layout of preloaded class
+#
+# JRE version:  (7.0_55-b13) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (24.55-b03 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.sun.com/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000000000228f000):  JavaThread "Unknown thread" [_thread_in_vm, id=3972, stack(0x00000000022b0000,0x00000000023b0000)]
+
+Stack: [0x00000000022b0000,0x00000000023b0000]
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x000000000228f000 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=3972, stack(0x00000000022b0000,0x00000000023b0000)]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (10 events):
+Event: 0.084 loading class 0x0000000009b10760 done
+Event: 0.084 loading class 0x0000000009b10180 done
+Event: 0.084 loading class 0x0000000009b10160
+Event: 0.084 loading class 0x0000000009b18260
+Event: 0.084 loading class 0x0000000009b18260 done
+Event: 0.084 loading class 0x0000000009b18290
+Event: 0.084 loading class 0x0000000009b18290 done
+Event: 0.084 loading class 0x0000000009b182c0
+Event: 0.084 loading class 0x0000000009b182c0 done
+Event: 0.085 loading class 0x0000000009b10160 done
+
+
+Dynamic libraries:
+0x000000013f390000 - 0x000000013f3c3000 	C:\Program Files\Java\jre7\bin\javaw.exe
+0x0000000077100000 - 0x00000000772a9000 	C:\Windows\SYSTEM32\ntdll.dll
+0x0000000076ee0000 - 0x0000000076fff000 	C:\Windows\system32\kernel32.dll
+0x000007fefcf00000 - 0x000007fefcf6c000 	C:\Windows\system32\KERNELBASE.dll
+0x0000000074980000 - 0x0000000074a1e000 	C:\Program Files\Bitdefender\Bitdefender\Active Virus Control\Avc3_00302_054\avcuf64.dll
+0x000007fefd9c0000 - 0x000007fefda9b000 	C:\Windows\system32\ADVAPI32.dll
+0x000007fefd920000 - 0x000007fefd9bf000 	C:\Windows\system32\msvcrt.dll
+0x000007fefd6f0000 - 0x000007fefd70f000 	C:\Windows\SYSTEM32\sechost.dll
+0x000007fefde30000 - 0x000007fefdf5d000 	C:\Windows\system32\RPCRT4.dll
+0x0000000077000000 - 0x00000000770fa000 	C:\Windows\system32\USER32.dll
+0x000007fefe590000 - 0x000007fefe5f7000 	C:\Windows\system32\GDI32.dll
+0x000007fefe4a0000 - 0x000007fefe4ae000 	C:\Windows\system32\LPK.dll
+0x000007fefdaa0000 - 0x000007fefdb69000 	C:\Windows\system32\USP10.dll
+0x000007fefa390000 - 0x000007fefa584000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.18807_none_fa381d5f175bfb52\COMCTL32.dll
+0x000007fefdd50000 - 0x000007fefddc1000 	C:\Windows\system32\SHLWAPI.dll
+0x000007fefe4b0000 - 0x000007fefe4de000 	C:\Windows\system32\IMM32.DLL
+0x000007fefd5e0000 - 0x000007fefd6e9000 	C:\Windows\system32\MSCTF.dll
+0x000000006c770000 - 0x000000006c842000 	C:\Program Files\Java\jre7\bin\msvcr100.dll
+0x000000005f260000 - 0x000000005fa29000 	C:\Program Files\Java\jre7\bin\server\jvm.dll
+0x000007fef5ae0000 - 0x000007fef5ae9000 	C:\Windows\system32\WSOCK32.dll
+0x000007fefd280000 - 0x000007fefd2cd000 	C:\Windows\system32\WS2_32.dll
+0x000007fefe580000 - 0x000007fefe588000 	C:\Windows\system32\NSI.dll
+0x000007fefc050000 - 0x000007fefc08b000 	C:\Windows\system32\WINMM.dll
+0x00000000772c0000 - 0x00000000772c7000 	C:\Windows\system32\PSAPI.DLL
+0x0000000073e70000 - 0x0000000073e7f000 	C:\Program Files\Java\jre7\bin\verify.dll
+0x0000000073470000 - 0x0000000073498000 	C:\Program Files\Java\jre7\bin\java.dll
+0x00000000685a0000 - 0x00000000685d5000 	C:\Program Files\Java\jre7\bin\jdwp.dll
+0x00000000733d0000 - 0x00000000733d8000 	C:\Program Files\Java\jre7\bin\npt.dll
+0x0000000073450000 - 0x0000000073465000 	C:\Program Files\Java\jre7\bin\zip.dll
+
+VM Arguments:
+jvm_args: -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:50622 -Dfile.encoding=Cp1252 -Xbootclasspath:C:\adt-bundle-windows-x86_64-20131030\sdk\platforms\android-19\android.jar 
+java_command: bakup.TCPServer
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x86;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x64;C:\Program Files (x86)\Toshiba\Bluetooth Toshiba Stack\sys\;C:\Program Files (x86)\Toshiba\Bluetooth Toshiba Stack\sys\x64\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\ManagementStudio\;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\PrivateAssemblies\;C:\Program Files (x86)\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files\nodejs\;C:\wamp\bin\php\php5.4.12;C:\Program Files (x86)\Java\jre7\bin;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\Nmap;C:\Users\Ciuc\AppData\Roaming\npm
+USERNAME=Ciuc
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 58 Stepping 9, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 7 , 64 bit Build 7601 Service Pack 1
+
+CPU:total 8 (4 cores per cpu, 2 threads per core) family 6 model 58 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, aes, erms, ht, tsc, tscinvbit, tscinv
+
+Memory: 4k page, physical 6183696k(2040984k free), swap 12365556k(7544628k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (24.55-b03) for windows-amd64 JRE (1.7.0_55-b13), built on Mar 17 2014 19:45:30 by "java_re" with unknown MS VC++:1600
+
+time: Tue Jun 02 21:39:53 2015
+elapsed time: 0 seconds
+

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">robot_industrial</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+	
+	<string name="b_mode">MODE</string>
+	<string name="b_rec">REC/DONE</string>
+	<string name="b_on_off">On/Off</string>
+	<string name="b_stop">STOP</string>
+	<string name="b_comp_pwr">COMP PWR</string>
+	
+	<string name="b_robot">ROBOT</string>
+	<string name="b_edit">EDIT</string>
+	<string name="b_disp">DISP</string>
+	<string name="b_clr">CLR ERR</string>
+	<string name="b_cmd">CMD</string>
+	<string name="b_run">RUN / HOLD</string>
+	<string name="b_step">STEP</string>
+	
+	<string name="b_no">NO</string>
+	<string name="b_yes">YES</string>
+	
+	<string name="b_mode_display">MODE DISPLAY</string>
+	
+	<string name="b_j1">J1</string>
+	<string name="b_j2">J2</string>
+	<string name="b_j3">J3</string>
+	<string name="b_j4">J4</string>
+	<string name="b_j5">J5</string>
+	<string name="b_j6">J6</string>
+	
+	<string name="b_j1_minus">-</string>
+	<string name="b_j1_plus">+</string>
+	<string name="b_j2_minus">-</string>
+	<string name="b_j2_plus">+</string>
+	<string name="b_j3_minus">-</string>
+	<string name="b_j3_plus">+</string>
+	<string name="b_j4_minus">-</string>
+	<string name="b_j4_plus">+</string>
+	<string name="b_j5_minus">-</string>
+	<string name="b_j5_plus">+</string>
+	<string name="b_j6_minus">-</string>
+	<string name="b_j6_plus">+</string>
+		
+	<string name="b_f1_disp">F1</string>
+	<string name="b_f2_disp">F2</string>
+	<string name="b_f3_disp">F3/DEV</string>
+	
+	<string name="b_f1">F1</string>
+	<string name="b_f2">F2</string>
+	<string name="b_f3">F3</string>
+	<string name="b_f4">F4</string>
+	<string name="b_f5">F5</string>
+	<string name="b_f6">F6</string>
+	<string name="b_f7">F7</string>
+	<string name="b_f8">F8</string>
+	<string name="b_slow">SLOW</string>
+	<string name="b_speed"></string>
+	<string name="b_t1">T1</string>
+	<string name="b_prog">PROG</string>
+	<string name="b_sys">SYS</string>
+	
+	<string name="b_led">&#8230;</string>
+	
+	<string name="b_soft0"></string>
+	<string name="b_soft1"></string>
+	<string name="b_soft2"></string>
+	<string name="b_soft3"></string>
+	<string name="b_soft4"></string>	
+	
+	<string name="screen">_______________________________________________________________</string>
+	
+	<string name="radio0">Comp</string>
+	
+	<string name="radio1">World</string>
+	
+	<string name="radio2">Tool</string>
+	
+	<string name="radio3">Joint</string>
+	
+	<string name="radio4">Free</string>
+	
+	<string name="title_activity_activitymanager">Second activity</string>
+	
+	<string name="environment_name">PRODUCTION</string>
+	<string name="environment_ip">Enter IP</string>
+	<string name="environment_password">Enter Password</string>
+	<string name="environment_connect">Connect</string>
+	
+	
+	
+</resources>
