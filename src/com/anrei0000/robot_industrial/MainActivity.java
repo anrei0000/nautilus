@@ -364,7 +364,6 @@ public class MainActivity extends Activity implements P_AsyncResponse {
 		RadioButton button3 = (RadioButton) findViewById(R.id.mode_radio3);
 		RadioButton button4 = (RadioButton) findViewById(R.id.mode_radio4);
 
-		// send_message_once("b_mode");
 
 		switch (next_mode) {
 		// comp
@@ -753,26 +752,6 @@ public class MainActivity extends Activity implements P_AsyncResponse {
 		}
 	}
 
-	/**
-	 * This function will not wait for a reply from the server
-	 * 
-	 * @param message
-	 *            message to be sent TODO: this function breaks any subsequent
-	 *            calls to the server
-	 */
-	public void send_message_once(String message) {
-		P_Chat chat = null;
-		chat = pendant.getChat();
-
-		if (chat.getStatus() == AsyncTask.Status.PENDING) {
-			// My AsyncTask has not started yet
-			chat.setDelegate(this);
-			chat.setMessage(message);
-			// chat.setNoAnswer(true);
-			chat.execute(pendant);
-			show_toast("Task started: Server won't reply to this call");
-		}
-	}
 
 	@Override
 	public void processFinish(P_Pendant pendant) {
@@ -945,17 +924,17 @@ public class MainActivity extends Activity implements P_AsyncResponse {
 		// @TODO: connect
 		if (pendant.getENVIRONMENT() != "TESTING") {
 			if (entered_ip && entered_pass) {
-				
-//				user_ip = "192.168.0.103"; // testing @home
-				user_ip = "192.168.0.107"; // testing @office
-//				user_ip = "172.20.10.3";// testing @iphone
-				
+
+				user_ip = "192.168.0.103"; // testing @home
+				// user_ip = "192.168.0.107"; // testing @office
+				// user_ip = "172.20.10.3";// testing @iphone
+
 				P_Chat new_chat = pendant.getChat();
 				new_chat.setIp(user_ip);
 				new_chat.setPassword(user_pass);
-				
+
 				pendant.setChat(new_chat);
-				
+
 				send_message("b_connect " + user_ip + " " + user_pass);
 			} else {
 				show_toast("Please input IP and Password.");
@@ -971,7 +950,7 @@ public class MainActivity extends Activity implements P_AsyncResponse {
 
 	public void b_stop(View v) throws Exception {
 		send_message("b_stop");
-		test_salsa();
+		// test_salsa();
 	}
 
 	/**

@@ -22,8 +22,6 @@
 
 package com.anrei0000.robot_industrial;
 
-import android.app.Activity;
-
 public class P_Pendant {
 	/**
 	 * DEVELOPMENT = replicates production but displays some error messages
