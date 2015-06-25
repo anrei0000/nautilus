@@ -64,6 +64,7 @@ public class MainActivity extends Activity implements P_AsyncResponse {
 
 		// init display using default values
 		init();
+		
 	}
 
 	private void init() {
@@ -95,14 +96,18 @@ public class MainActivity extends Activity implements P_AsyncResponse {
 
 	}
 
+	/**
+	 * DEPRECATED
+	 * We won't use this
+	 */
 	private void set_details_bar() {
-		TextView b = (TextView) findViewById(R.id.displayEnvironment);
-
-		if (pendant.getENVIRONMENT() == "PRODUCTION") {
-			b.setVisibility(View.INVISIBLE);
-		} else {
-			b.setText(pendant.getENVIRONMENT().toString());
-		}
+//		TextView b = (TextView) findViewById(R.id.displayEnvironment);
+//
+//		if (pendant.getENVIRONMENT() == "PRODUCTION") {
+//			b.setVisibility(View.INVISIBLE);
+//		} else {
+//			b.setText(pendant.getENVIRONMENT().toString());
+//		}
 
 	}
 
@@ -829,6 +834,9 @@ public class MainActivity extends Activity implements P_AsyncResponse {
 			
 			TextView b = (TextView) findViewById(R.id.displayIP);
 			b.setText(pendant.getChat().getIp());
+			
+			TextView b2 = (TextView) findViewById(R.id.displayPort);
+			b2.setText(pendant.getChat().getPort().toString());
 		}
 		
 		return false;
@@ -908,8 +916,9 @@ public class MainActivity extends Activity implements P_AsyncResponse {
 	 */
 	public void b_connect(View v) {
 		// todo: use this to change the app environment
-		EditText environment = (EditText) findViewById(R.id.displayEnvironment);
+		EditText environment = (EditText) findViewById(R.id.displayIP);
 		EditText ip = (EditText) findViewById(R.id.displayIP);
+		EditText port = (EditText) findViewById(R.id.displayPort);
 		EditText password = (EditText) findViewById(R.id.displayPassword);
 
 		// hide keyboarard
@@ -918,33 +927,46 @@ public class MainActivity extends Activity implements P_AsyncResponse {
 
 		String user_ip = ip.getText().toString();
 		String user_pass = password.getText().toString();
-
+		String tmp_port = port.getText().toString();
+		
+		if(tmp_port.equals("") || tmp_port.equals("Enter port")) tmp_port = "0000";
+		
+		Integer user_port = Integer.parseInt(tmp_port);
+		
 		Boolean entered_ip = false;
 		Boolean entered_pass = false;
-		// Boolean connected = false;
+		Boolean entered_port = false;
 
 		if (!user_ip.equals("Enter IP")) {
 			entered_ip = true;
 		}
-
 		if (!user_pass.equals("Enter Password")) {
 			entered_pass = true;
+		}
+		if (!tmp_port.equals("Enter Port")) {
+			entered_port = true;
 		}
 
 		// @TODO: connect
 		if (pendant.getENVIRONMENT() != "TESTING") {
-			if (entered_ip && entered_pass) {
+			if (entered_ip && entered_pass && entered_port) {
 				P_Chat new_chat = pendant.getChat();
 				
-				// if we skip setting IP here the hard-coded value in P_Chat will be used
-				if(!user_ip.equals(""))
+				// check if the user wants a new ip
+				if(!user_ip.equals("") && !user_ip.equals("Enter IP"))
+					// set new ip
 					new_chat.setIp(user_ip);
 				
+				// set password irrelevant of input
 				new_chat.setPassword(user_pass);
+				
+				// check if the user wants a new port
+				if(!user_port.equals(0000))
+					// set a new port
+					new_chat.setPort(user_port);
 				
 				pendant.setChat(new_chat);
 				
-//				send_message("b_connect " + user_ip + " " + user_pass);
 				send_message(user_pass);
 			} else {
 				show_toast("Please input IP and Password.");

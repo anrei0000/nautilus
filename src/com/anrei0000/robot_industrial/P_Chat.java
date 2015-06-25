@@ -26,7 +26,7 @@ class P_Chat extends AsyncTask<P_Pendant, Void, P_Pendant> {
 //	private String ip = "172.20.10.3"; //@iphone
 	private String ip = "192.168.0.104"; //@laura
 	
-	private Integer port = 6790;
+	private Integer port = 6791;
 	private String password = null;
 
 	private Socket my_socket = null;

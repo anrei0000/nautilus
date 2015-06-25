@@ -91,9 +91,9 @@ public final class R {
         public static final int b_yes=0x7f08001d;
         public static final int center_left=0x7f08001e;
         public static final int display=0x7f08000d;
-        public static final int displayEnvironment=0x7f080002;
-        public static final int displayIP=0x7f080003;
+        public static final int displayIP=0x7f080002;
         public static final int displayPassword=0x7f080004;
+        public static final int displayPort=0x7f080003;
         public static final int editSoft0=0x7f08000f;
         public static final int editSoft1=0x7f080010;
         public static final int editSoft2=0x7f080011;
@@ -193,6 +193,7 @@ public final class R {
         public static final int environment_ip=0x7f050042;
         public static final int environment_name=0x7f050041;
         public static final int environment_password=0x7f050043;
+        public static final int environment_port=0x7f050045;
         public static final int hello_world=0x7f050002;
         public static final int radio0=0x7f05003b;
         public static final int radio1=0x7f05003c;

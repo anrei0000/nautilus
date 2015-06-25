@@ -26,16 +26,6 @@
             android:orientation="horizontal" >
 
             <EditText
-                android:id="@+id/displayEnvironment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"    
-                android:enabled="false"
-                android:inputType="text"
-                android:text="@string/environment_name" >
-            </EditText>
-            
-            <EditText
                 android:id="@+id/displayIP"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -46,13 +36,22 @@
             </EditText>
 
             <EditText
+                android:id="@+id/displayPort"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number|text"
+                android:selectAllOnFocus="true"
+                android:text="@string/environment_port" >
+            </EditText>
+
+            <EditText
                 android:id="@+id/displayPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:imeOptions="actionDone"
                 android:selectAllOnFocus="true"
-                android:inputType="textPassword"
                 android:text="@string/environment_password" >
             </EditText>
 

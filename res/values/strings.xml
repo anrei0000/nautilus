@@ -88,6 +88,7 @@
 	<string name="environment_ip">Enter IP</string>
 	<string name="environment_password">Enter Password</string>
 	<string name="environment_connect">Connect</string>
+	<string name="environment_port">Enter port</string>
 	
 	
 	
