@@ -3,6 +3,8 @@
 	<name>robot</name>
 	<comment></comment>
 	<projects>
+		<project>robot-server</project>
+		<project>robot-simulator</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

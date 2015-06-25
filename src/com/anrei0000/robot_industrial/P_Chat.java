@@ -1,25 +1,3 @@
-//The MIT License (MIT)
-//
-//Copyright (c) 2015 anrei0000
-//
-//Permission is hereby granted, free of charge, to any person obtaining a copy
-//of this software and associated documentation files (the "Software"), to deal
-//in the Software without restriction, including without limitation the rights
-//to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//copies of the Software, and to permit persons to whom the Software is
-//furnished to do so, subject to the following conditions:
-//
-//The above copyright notice and this permission notice shall be included in all
-//copies or substantial portions of the Software.
-//
-//THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//SOFTWARE.
-
 package com.anrei0000.robot_industrial;
 
 import java.io.BufferedReader;
@@ -40,13 +18,15 @@ class P_Chat extends AsyncTask<P_Pendant, Void, P_Pendant> {
 	private static byte[] nonce = new byte[24];
 	private static byte[] nonce2 = new byte[24];
 
-	private final static String DEVELOPMENT = "10.0.2.2";
-	private final static String DISTER = "192.168.0.103";
 	private static final String String = null;
 
 	private P_AsyncResponse delegate = null;
-	private String ip = null;
-	private Integer port = 6789;
+//	private String ip = "172.16.110.6"; //@laptop fac
+//	private String ip = "172.16.110.182"; //@robot
+//	private String ip = "172.20.10.3"; //@iphone
+	private String ip = "192.168.0.104"; //@laura
+	
+	private Integer port = 6790;
 	private String password = null;
 
 	private Socket my_socket = null;
@@ -101,9 +81,9 @@ class P_Chat extends AsyncTask<P_Pendant, Void, P_Pendant> {
 
 		// send message
 		try {
-			String encrypted_message = encrypt(message);
-			
-			send_message(current_pendant, encrypted_message);
+//			String encrypted_message = encrypt(message);
+			String not_encrypted = message;
+			send_message(current_pendant, not_encrypted);
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -198,6 +178,8 @@ class P_Chat extends AsyncTask<P_Pendant, Void, P_Pendant> {
 
 		if (socket != null) {
 			PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+//			out.write(message2);
+//			out.flush();
 			out.println(message2);
 			return true;
 		}
@@ -245,9 +227,11 @@ class P_Chat extends AsyncTask<P_Pendant, Void, P_Pendant> {
 			BufferedReader in = current_pendant.getChat().getReader();
 			message = in.readLine();
 			
-			String decrypted_message = decrypt(message);
+//			String decrypted_message = decrypt(message);
+			String uncrypted_message = message;
 			
-			return decrypted_message;
+			return uncrypted_message;
+//			return decrypted_message;
 		}
 
 		// couldn't get message because the

@@ -1,25 +1,3 @@
-//The MIT License (MIT)
-//
-//Copyright (c) 2015 anrei0000
-//
-//Permission is hereby granted, free of charge, to any person obtaining a copy
-//of this software and associated documentation files (the "Software"), to deal
-//in the Software without restriction, including without limitation the rights
-//to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//copies of the Software, and to permit persons to whom the Software is
-//furnished to do so, subject to the following conditions:
-//
-//The above copyright notice and this permission notice shall be included in all
-//copies or substantial portions of the Software.
-//
-//THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//SOFTWARE.
-
 package com.anrei0000.robot_industrial;
 
 import java.util.Map;
@@ -364,6 +342,7 @@ public class MainActivity extends Activity implements P_AsyncResponse {
 		RadioButton button3 = (RadioButton) findViewById(R.id.mode_radio3);
 		RadioButton button4 = (RadioButton) findViewById(R.id.mode_radio4);
 
+		// send_message_once("b_mode");
 
 		switch (next_mode) {
 		// comp
@@ -752,6 +731,26 @@ public class MainActivity extends Activity implements P_AsyncResponse {
 		}
 	}
 
+	/**
+	 * This function will not wait for a reply from the server
+	 * 
+	 * @param message
+	 *            message to be sent TODO: this function breaks any subsequent
+	 *            calls to the server
+	 */
+	public void send_message_once(String message) {
+		P_Chat chat = null;
+		chat = pendant.getChat();
+
+		if (chat.getStatus() == AsyncTask.Status.PENDING) {
+			// My AsyncTask has not started yet
+			chat.setDelegate(this);
+			chat.setMessage(message);
+			// chat.setNoAnswer(true);
+			chat.execute(pendant);
+			show_toast("Task started: Server won't reply to this call");
+		}
+	}
 
 	@Override
 	public void processFinish(P_Pendant pendant) {
@@ -814,16 +813,27 @@ public class MainActivity extends Activity implements P_AsyncResponse {
 		 */
 		// if we found b_connect and there is also another message from the
 		// server
-		if (init_message.contains("b_connect")) {
-			if (server_message.equals("ack")) {
-				buttons_set_state(true);
-			} else {
-				show_toast("Wrong password");
-			}
-		}
+//		if (init_message.contains("b_connect")) {
+//			if (server_message.equals("ack")) {
+//				buttons_set_state(true);
+//			} else {
+//				show_toast("Wrong password");
+//			}
+//		}
 
+		if(server_message.equals("Autentificare OK"))
+		{
+			buttons_set_state(true);
+			Button button = (Button) findViewById(R.id.b_connect);
+			button.setEnabled(false);
+			
+			TextView b = (TextView) findViewById(R.id.displayIP);
+			b.setText(pendant.getChat().getIp());
+		}
+		
 		return false;
 	}
+
 
 	/**
 	 * send the full messages from +/- buttons
@@ -909,8 +919,8 @@ public class MainActivity extends Activity implements P_AsyncResponse {
 		String user_ip = ip.getText().toString();
 		String user_pass = password.getText().toString();
 
-		Boolean entered_ip = true;
-		Boolean entered_pass = true;
+		Boolean entered_ip = false;
+		Boolean entered_pass = false;
 		// Boolean connected = false;
 
 		if (!user_ip.equals("Enter IP")) {
@@ -924,18 +934,18 @@ public class MainActivity extends Activity implements P_AsyncResponse {
 		// @TODO: connect
 		if (pendant.getENVIRONMENT() != "TESTING") {
 			if (entered_ip && entered_pass) {
-
-				user_ip = "192.168.0.103"; // testing @home
-				// user_ip = "192.168.0.107"; // testing @office
-				// user_ip = "172.20.10.3";// testing @iphone
-
 				P_Chat new_chat = pendant.getChat();
-				new_chat.setIp(user_ip);
+				
+				// if we skip setting IP here the hard-coded value in P_Chat will be used
+				if(!user_ip.equals(""))
+					new_chat.setIp(user_ip);
+				
 				new_chat.setPassword(user_pass);
-
+				
 				pendant.setChat(new_chat);
-
-				send_message("b_connect " + user_ip + " " + user_pass);
+				
+//				send_message("b_connect " + user_ip + " " + user_pass);
+				send_message(user_pass);
 			} else {
 				show_toast("Please input IP and Password.");
 			}
@@ -950,7 +960,7 @@ public class MainActivity extends Activity implements P_AsyncResponse {
 
 	public void b_stop(View v) throws Exception {
 		send_message("b_stop");
-		// test_salsa();
+		test_salsa();
 	}
 
 	/**
